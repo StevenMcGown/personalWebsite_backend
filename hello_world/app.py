@@ -1,10 +1,13 @@
 import json
 import boto3
-# import requests
-
 
 def lambda_handler(event, context):
     client = boto3.client('dynamodb')
+
+    path_params = event.get('pathParameters', None)
+
+    if not path_params:
+        return "invalid_request_response"
 
     count = client.get_item(
         TableName='counter',
@@ -22,6 +25,7 @@ def lambda_handler(event, context):
                 'count' : {'N': count}
             }
     )
+
 
     return {
         "statusCode": 200,
