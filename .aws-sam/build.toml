@@ -6,6 +6,6 @@ codeuri = "/home/stm/Documents/Personal_Projects/Angular/CloudResumeChallenge_SA
 runtime = "python3.8"
 source_md5 = ""
 packagetype = "Zip"
-functions = ["HelloWorldFunction"]
+functions = ["HelloWorldFunction", "LambdaTestFunction"]
 
 [layer_build_definitions]
