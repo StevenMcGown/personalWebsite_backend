@@ -1,1 +1,1 @@
-sam build && sam local invoke LambdaTestFunction
+sam build && sam local invoke LambdaTestFunction 
