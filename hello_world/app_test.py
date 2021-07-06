@@ -1,7 +1,10 @@
 import boto3
 import json
-import subprocess
-import shlex
+from botocore.session import Session
+from botocore.config import Config
+
+s = Session()
+c = s.create_client('s3', config=Config(connect_timeout=5, read_timeout=60, retries={'max_attempts': 2}))
 
 def lambda_test(event, context):
     '''
@@ -40,20 +43,15 @@ def lambda_test(event, context):
     # Will 1 more than initial value
     assert(initial_value + 1 == incremented_value)
 
-    if initial_value + 1 != incremented_value:
-        print("FAIL")
-        return -1
-    else:
-        '''
-        The original value should be re-instated but only if the
-        assertion passed
-        '''
-        dynamoDB_client.put_item(
-            TableName='counter',
-            Item={
-                'page_name' : {'S': 'resume'},
-                'count' : {'N': str(initial_value)}
-            }
-        )
-        print("OK")
-        return 0
+    '''
+    The original value should be re-instated but only if the
+    assertion passed
+    '''
+    dynamoDB_client.put_item(
+        TableName='counter',
+        Item={
+            'page_name' : {'S': 'resume'},
+            'count' : {'N': str(initial_value)}
+        }
+    )
+    print("ok")
