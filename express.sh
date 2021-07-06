@@ -2,4 +2,4 @@
 git add .
 git commit -m "Automatic SAM deploy"
 git push
-sam build && sam deploy
+sam build -y && sam deploy
