@@ -1,7 +1,8 @@
 #!/bin/bash
 git pull
 git add .
-git commit -m "Automatic SAM deploy"
+read -p "message: " message_var
+git commit -m "$message_var"
 git push
 sam build
 sam deploy --confirm-changeset
