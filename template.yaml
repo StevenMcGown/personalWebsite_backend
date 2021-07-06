@@ -20,7 +20,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
+      CodeUri: lambda_app/
       Handler: app.lambda_handler
       Runtime: python3.8
       Events:
@@ -33,7 +33,7 @@ Resources:
   LambdaTestFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
+      CodeUri: lambda_app/
       Handler: app_test.lambda_test
       Runtime: python3.8
       Events:
