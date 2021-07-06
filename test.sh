@@ -1,7 +1,7 @@
 sam build && sam local invoke LambdaTestFunction
 pip install pytest
 pip install boto3
-python3 -m pytest hello_world/app_test.py --verbose
+python3 -m pytest lambda_app/app_test.py --verbose
 ret=$?
 if [ "$ret" = 5 ]; then
   echo "No tests collected.  Exiting with 0 (instead of 5)."
