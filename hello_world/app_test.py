@@ -41,7 +41,7 @@ def lambda_test(event, context):
     incremented_value = int(data['Visitors'])
 
     # Will 1 more than initial value
-    assert(initial_value + 2 == incremented_value)
+    assert(initial_value + 1 == incremented_value)
 
     '''
     The original value should be re-instated but only if the
